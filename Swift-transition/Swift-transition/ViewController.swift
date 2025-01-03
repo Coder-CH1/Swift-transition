@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var isLabelLarge = false
+    
     fileprivate var label = UILabel()
     
     fileprivate var button = UIButton()
@@ -22,6 +24,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "convert me"
         label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("tap me", for: .normal)
@@ -48,8 +51,25 @@ class ViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-        UIView.transition(with: button, duration: 0.5, options: .transitionCrossDissolve) {
-            self.button.setTitle("New tap me", for: .normal)
+        if isLabelLarge {
+            UIView.animate(withDuration: 0.7, delay: 0 ,options: .curveEaseInOut) {
+                self.label.transform = .identity
+            } completion: { _ in
+                UIView.transition(with: self.label, duration: 0.5, options: .transitionCrossDissolve) {
+                    self.label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+                }
+                self.isLabelLarge = false
+            }
+        } else {
+            UIView.animate(withDuration: 0.7, delay: 0 ,options: .curveEaseInOut) {
+                self.label.transform = CGAffineTransform(scaleX: 2, y: 2)
+            } completion: { _ in
+                UIView.transition(with: self.label, duration: 0.5, options: .transitionCrossDissolve) {
+                    self.label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+                    //self.button.setTitle("New tap me", for: .normal)
+                }
+                self.isLabelLarge = true
+            }
         }
     }
 }
