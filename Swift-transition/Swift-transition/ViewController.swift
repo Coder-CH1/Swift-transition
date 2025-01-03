@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     fileprivate var label = UILabel()
     
     fileprivate var button = UIButton()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeObjects()
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-           
+            
             button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.heightAnchor.constraint(equalToConstant: 50),

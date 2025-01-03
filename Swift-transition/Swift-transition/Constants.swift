@@ -14,6 +14,5 @@ enum LabelFontSize {
 
 enum LabelFontWeight {
     static let regular: UIFont.Weight = .regular
-    
     static let bold: UIFont.Weight = .bold
 }
