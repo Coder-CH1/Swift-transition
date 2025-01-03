@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         button.setTitle("tap me", for: .normal)
         button.setTitleColor(.red, for: .normal)
         button.backgroundColor = .darkGray
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         setSubviewsAndLayout()
     }
@@ -44,6 +45,12 @@ class ViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 50),
             button.widthAnchor.constraint(equalToConstant: 250),
         ])
+    }
+    
+    @objc func buttonTapped() {
+        UIView.transition(with: button, duration: 0.5, options: .transitionCrossDissolve) {
+            self.button.setTitle("New tap me", for: .normal)
+        }
     }
 }
 
