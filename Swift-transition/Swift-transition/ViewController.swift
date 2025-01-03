@@ -15,7 +15,35 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        customizeObjects()
+    }
+    
+    func customizeObjects() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "convert me"
+        label.textColor = .darkGray
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("tap me", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        button.backgroundColor = .darkGray
+        
+        setSubviewsAndLayout()
+    }
+    
+    // MARK: - Subviews and Layout -
+    func setSubviewsAndLayout() {
+        view.addSubview(label)
+        view.addSubview(button)
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+           
+            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50),
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.heightAnchor.constraint(equalToConstant: 50),
+            button.widthAnchor.constraint(equalToConstant: 250),
+        ])
     }
 }
 
