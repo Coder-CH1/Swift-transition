@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "convert me"
         label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: LabelFontSize.small, weight: LabelFontWeight.regular)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("tap me", for: .normal)
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
                 self.label.transform = .identity
             } completion: { _ in
                 UIView.transition(with: self.label, duration: 0.5, options: .transitionCrossDissolve) {
-                    self.label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+                    self.label.font = UIFont.systemFont(ofSize: LabelFontSize.small, weight: LabelFontWeight.regular)
                 }
                 self.isLabelLarge = false
             }
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
                 self.label.transform = CGAffineTransform(scaleX: 2, y: 2)
             } completion: { _ in
                 UIView.transition(with: self.label, duration: 0.5, options: .transitionCrossDissolve) {
-                    self.label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+                    self.label.font = UIFont.systemFont(ofSize: LabelFontSize.large, weight: LabelFontWeight.bold)
                     //self.button.setTitle("New tap me", for: .normal)
                 }
                 self.isLabelLarge = true
