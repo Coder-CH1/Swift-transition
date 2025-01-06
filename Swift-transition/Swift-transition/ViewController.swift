@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     func customizeObjects() {
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "convert me"
+        label.text = "change me"
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: LabelFontSize.small, weight: LabelFontWeight.regular)
         
@@ -44,9 +44,9 @@ class ViewController: UIViewController {
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             button.heightAnchor.constraint(equalToConstant: 50),
-            button.widthAnchor.constraint(equalToConstant: 250),
         ])
     }
     
@@ -62,11 +62,10 @@ class ViewController: UIViewController {
             }
         } else {
             UIView.animate(withDuration: 0.7, delay: 0 ,options: .curveEaseInOut) {
-                self.label.transform = CGAffineTransform(scaleX: 2, y: 2)
+                self.label.transform = CGAffineTransform(scaleX: 1, y: 1)
             } completion: { _ in
                 UIView.transition(with: self.label, duration: 0.5, options: .transitionCrossDissolve) {
                     self.label.font = UIFont.systemFont(ofSize: LabelFontSize.large, weight: LabelFontWeight.bold)
-                    //self.button.setTitle("New tap me", for: .normal)
                 }
                 self.isLabelLarge = true
             }
