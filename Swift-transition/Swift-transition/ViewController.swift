@@ -63,6 +63,7 @@ class ViewController: UIViewController {
         } else {
             UIView.animate(withDuration: 0.7, delay: 0 ,options: .curveEaseInOut) {
                 self.label.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    .rotated(by: .pi)
             } completion: { _ in
                 UIView.transition(with: self.label, duration: 0.5, options: .transitionCrossDissolve) {
                     self.label.font = UIFont.systemFont(ofSize: LabelFontSize.large, weight: LabelFontWeight.bold)
