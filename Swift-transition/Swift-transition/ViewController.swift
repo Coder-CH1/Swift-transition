@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         button.setTitle("tap me", for: .normal)
         button.setTitleColor(.red, for: .normal)
         button.backgroundColor = .darkGray
+        button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         setSubviewsAndLayout()
