@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     func customizeObjects() {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "change me"
-        label.textColor = .darkGray
+        label.textColor = .red
         label.font = UIFont.systemFont(ofSize: LabelFontSize.small, weight: LabelFontWeight.regular)
         
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50),
+            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             button.heightAnchor.constraint(equalToConstant: 50),
